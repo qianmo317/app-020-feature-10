@@ -57,6 +57,10 @@ export function BuildingPage({ buildingId }: { buildingId: string }) {
       <div className="toolbar">
         <input type="number" value={level} onChange={(e) => setLevel(Number(e.target.value))} style={{ width: 80 }} />
         <button onClick={() => addFloor(building.id, level)}>添加楼层</button>
+        <Link className="btn" to={`/building/${building.id}/print`}>整楼批量出图</Link>
+        {bfs.some((f) => !f.lastValidation) && (
+          <span className="hint">有楼层尚未校验，批量出图时会标出</span>
+        )}
       </div>
       <table className="table">
         <thead>

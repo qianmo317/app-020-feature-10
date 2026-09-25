@@ -2,6 +2,7 @@ import { FloorEditor } from './pages/FloorEditor';
 import { Home } from './pages/Home';
 import { BuildingPage } from './pages/Building';
 import { PrintPage } from './pages/Print';
+import { BatchPrintPage } from './pages/BatchPrint';
 import { FacilitiesPage } from './pages/Facilities';
 import { RulesPage } from './pages/Rules';
 import { Link, useRoute } from './router';
@@ -12,6 +13,7 @@ export function App() {
 
   let content: React.ReactNode;
   if (!seg0) content = <Home />;
+  else if (seg0 === 'building' && seg1 && seg2 === 'print') content = <BatchPrintPage buildingId={seg1} />;
   else if (seg0 === 'building' && seg1) content = <BuildingPage buildingId={seg1} />;
   else if (seg0 === 'floor' && seg1 && seg2 === 'print') content = <PrintPage floorId={seg1} />;
   else if (seg0 === 'floor' && seg1) content = <FloorEditor floorId={seg1} />;
