@@ -163,6 +163,14 @@ input, select {
 .sheet-legend { display: flex; gap: 24px; border-top: 1px solid #999; padding-top: 6px; flex-wrap: wrap; }
 .sheet-legend .legendrow { font-size: 11px; }
 .sheet-foot { display: flex; justify-content: space-between; gap: 12px; color: #555; font-size: 11px; border-top: 1px solid #ddd; padding-top: 4px; flex-wrap: wrap; }
+.sheet-foot .pagenum { margin-left: auto; font-weight: 600; color: #333; white-space: nowrap; }
+.sheet-body { flex: 1; min-height: 0; padding: 8px 0; overflow: hidden; }
+.sheet-body .table th, .sheet-body .table td { padding: 5px 8px; font-size: 12px; }
+
+/* 批量出图 */
+.planlist { margin: 6px 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+.planlist li { margin: 2px 0; break-inside: avoid; }
+.planlist .badge { margin-left: 6px; }
 
 @media print {
   body { background: #fff; }
@@ -170,5 +178,6 @@ input, select {
   .main, .app { display: block; height: auto; }
   .printpage { background: #fff; padding: 0; }
   .print-sheet { border: none; margin: 0; width: 100% !important; max-width: none !important; page-break-after: always; }
+  .print-sheet:last-of-type { page-break-after: auto; } /* 末页（全楼汇总）后不再补空白页 */
   @page { size: A4 landscape; margin: 8mm; }
 }

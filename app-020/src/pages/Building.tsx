@@ -57,6 +57,7 @@ export function BuildingPage({ buildingId }: { buildingId: string }) {
       <div className="toolbar">
         <input type="number" value={level} onChange={(e) => setLevel(Number(e.target.value))} style={{ width: 80 }} />
         <button onClick={() => addFloor(building.id, level)}>添加楼层</button>
+        {bfs.length > 0 && <Link className="btn" to={`/building/${building.id}/print`}>整栋批量出图</Link>}
       </div>
       <table className="table">
         <thead>
